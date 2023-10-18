@@ -140,6 +140,7 @@ function drawScreen3() {
         circle(x, y, dia * 0.1);
         pop();
     }
+
 }
 
 function vileplume(posX, posY) {
@@ -195,7 +196,7 @@ function drawPetal() {
         textSize(20);
         fill(0, 0, 0);
         noStroke();
-        text("restart", width - 200, 80);
+        text("save", width - 200, 80);
         pop();
         if (petalScale > 2.4) {
             noLoop();
@@ -336,7 +337,7 @@ function keyPressed() {
 
 function mousePressed() {
     if (mouseX < width - 100 && mouseX > width - 300 && mouseY > 50 && mouseY < 100) {
-        sequence = 0
+        saveCanvas('Vileplume', 'png');
     }
-
 }
+
