@@ -54,7 +54,7 @@ function drawScreen2() {
     textAlign(CENTER);
     fill(255, 255, 255);
     textStyle();
-    text("Drag your mouse around the screen to see Vileplume transform!", windowWidth / 2, windowHeight - 600);
+    text("Welcome to Vileplume's world!", windowWidth / 2, windowHeight - 600);
     pop();
 
     push();
@@ -66,7 +66,7 @@ function drawScreen2() {
     textWrap(WORD);
     strokeJoin(ROUND);
     text(
-        "Click around the screen to see Vileplume transform!",
+        "Drag your mouse around the screen to see Vileplume transform!",
         windowWidth / 2 - 250,
         windowHeight - 550,
         500
@@ -190,42 +190,17 @@ function drawPetal() {
         push();
         fill(255)
         noStroke();
-        rect(width - 300, 50, 200, 30);
+        rect(width - 300, 50, 200, 50, 10);
         textAlign(CENTER);
         textSize(20);
         fill(0, 0, 0);
         noStroke();
-        text("restart", width - 200, 65);
+        text("restart", width - 200, 80);
         pop();
-
-        if (petalScale > 1.4) {
+        if (petalScale > 2.4) {
             noLoop();
 
-            // textAlign(CENTER);
-            // textSize(20);
-            // text("GAME OVER - Take a pic and restart", windowWidth/2,windowHeight-600);
-            // console.log("OVER");
-
-
-            // sequence == 0 
-            //LA Office hr objectives 
-
-            // game over when petal size reaches 1.4
-
-            //Option 1
-            // create a button for download a pic
-            //saveCanvas('Vileplume', 'png');
-            // create a button for reset from start
-
-            //Option 2
-            //automatically reset from start
-
-
-
-
         }
-
-
 
 
         let x = p.width / 2;
@@ -360,11 +335,8 @@ function keyPressed() {
 }
 
 function mousePressed() {
-
-    if (mouseX < width - 100 && mouseX > width - 300 && mouseY > 50 && mouseY > 80) {
+    if (mouseX < width - 100 && mouseX > width - 300 && mouseY > 50 && mouseY < 100) {
         sequence = 0
-
     }
-
 
 }
