@@ -1,0 +1,157 @@
+html,
+body {
+  height: 100%;
+  background-color: #d56756ff;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.container-landing-page {
+  width: 100%;
+  height: 100%;
+
+  /* Explore more with the flexbox properties! */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.main-container {
+  background-color: aqua;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.interface-container {
+  background-color: gray;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* FLEXBOX PROPERTIES */
+/* 
+flex-direction
+flex-wrap
+flex-flow
+justify-content
+align-items
+align-content
+*/
+
+
+h3 {
+  font-family: "Courier New";
+  color: white;
+}
+
+p {
+  background-color: #d56756ff;
+  color: gray;
+}
+
+div {
+  background-color: #d56756ff;
+  width: 220px;
+  height: 100px;
+  margin: 10px;
+  padding: 5px;
+}
+
+.landing {
+  position: static;
+  display: block;
+  width: 100%;
+  height: 900px;
+  justify-content: center;
+  align-items: center;
+  margin: 0%;
+  padding: 0px;
+  text-align: center;
+}
+
+.welcome {
+  background-color: #5a2519ff;
+  position: absolute;
+  left: 850px;
+  top: 50px;
+  font-size: 87px;
+  color: white;
+}
+
+.title {
+  position: absolute;
+  left: 1000px;
+  top: 550px;
+  font-size: 40px;
+  color: white;
+}
+
+
+.relative-div {
+  background-color: #5a2519ff;
+  position: relative;
+  display: inline-block;
+  width: 447px;
+  height: 100px;
+  margin: 1%;
+  padding: 5px;
+  left: 0px;
+  top: 400px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.centerimg {
+  width: 62%;
+  height: 62%;
+}
+
+.bar {
+  background-color: #d56756ff;
+  position: absolute;
+  width: 1440px;
+  height: 300px;
+  left: 0px;
+  top: 1000px;
+}
+
+.bar1 {
+  background-color: #5a2519ff;
+  position: absolute;
+  width: 1440px;
+  height: 400px;
+  left: 0px;
+  top: 1200px;
+}
+
+.bar2 {
+  background-color: #d56756ff;
+  position: absolute;
+  width: 1440px;
+  height: 300px;
+  left: 0px;
+  top: 1550px;
+}

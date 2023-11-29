@@ -1,0 +1,30 @@
+body {
+  background-color: lightblue;
+}
+
+.header {
+  background-color: rgb(173, 230, 187);
+  height: 150px;
+}
+
+.navBar {
+  background-color: rgb(230, 195, 173);
+  height: 50px;
+}
+
+.main-content {
+  background-color: rgb(201, 173, 230);
+  height: 500px;
+}
+
+.footer {
+  background-color: rgb(202, 230, 173);
+  height: 150px;
+}
+
+.project-box {
+  background-color: rgb(65, 94, 35);
+  height: 150px;
+  width: 200px;
+  margin: 20px;
+}

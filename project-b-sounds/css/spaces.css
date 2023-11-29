@@ -1,0 +1,60 @@
+html,
+body {
+    height: 100%;
+    background-color: #eae1c7ff;
+}
+
+body,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+    padding: 10;
+}
+
+h1 {
+    font-family: "Courier New";
+    color: #5a2519;
+}
+
+h2 {
+    font-family: "Courier New";
+    font-size: smaller;
+    color: black;
+}
+
+
+.container-landing-page {
+    width: 100%;
+    height: 10%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main {
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* FLEXBOX PROPERTIES */
+/* 
+flex-direction
+flex-wrap
+flex-flow
+justify-content
+align-items
+align-content
+*/
