@@ -2,6 +2,7 @@ let NUM_OF_BUTTONS = 1;
 let sounds = ["baby", "birds", "cartoon", "cheering", "chipmunk", "cow", "toy", "horse"];
 let buttons = [];
 let img;
+let bg;
 
 
 function preload() {
@@ -14,6 +15,7 @@ function preload() {
     toy = loadSound("sound-assets/playground/dog-toy.mp3")
     horse = loadSound("sound-assets/playground/horse.mp3")
     img = loadImage("img/ball.png")
+    bg = loadImage("img/pb.png")
 }
 
 function setup() {
@@ -23,20 +25,20 @@ function setup() {
     by = windowHeight / 2
 
     for (let i = 0; i < NUM_OF_BUTTONS; i++) {
-        buttons.push(new Button(bx - 400, by - 150, 100, baby));
-        buttons.push(new Button(bx, by, 80, birds));
-        buttons.push(new Button(bx + 250, by - 200, 50, cartoon));
-        buttons.push(new Button(bx - 300, by + 80, 30, cheering));
-        buttons.push(new Button(bx + 300, by + 150, 150, chipmunk));
-        buttons.push(new Button(bx + 400, by - 100, 80, cow));
-        buttons.push(new Button(bx - 350, by + 230, 50, toy));
-        buttons.push(new Button(bx - 130, by + 130, 40, horse));
+        buttons.push(new Button(bx - 550, by + 210, 130, baby));
+        buttons.push(new Button(bx - 350, by + 140, 40, birds));
+        buttons.push(new Button(bx - 150, by + 130, 90, cartoon));
+        buttons.push(new Button(bx + 500, by + 320, 40, cheering));
+        buttons.push(new Button(bx + 300, by + 150, 100, chipmunk));
+        buttons.push(new Button(bx + 600, by + 130, 70, cow));
+        buttons.push(new Button(bx + 100, by + 150, 50, toy));
+        buttons.push(new Button(bx, by + 320, 70, horse));
         noCursor();
     }
 }
 
 function draw() {
-    background(234, 225, 199);
+    background(bg);
 
     for (let i = 0; i < buttons.length; i++) {
         let b = buttons[i];

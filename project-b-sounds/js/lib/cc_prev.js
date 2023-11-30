@@ -1,41 +1,40 @@
-let RING_WIDTH = 50;
-
-let soundFiles = [
-    "sound-assets/calm-corner/daylight.mp3",
-    "sound-assets/calm-corner/beach-waves.mp3",
-    "sound-assets/calm-corner/beach-waves.mp3",
-    "sound-assets/calm-corner/relaxing-guitar.mp3",
-    "sound-assets/calm-corner/soft-ambient-atmosphere.mp3",
-    "sound-assets/calm-corner/soft-rain.mp3"
-];
-let sounds = [];
+let NUM_OF_BUTTONS = 1;
+let sounds = ["daylight", "beachwaves", "crickets", "guitar", "hope", "rain"];
 let buttons = [];
 let img;
-let bg;
+
 
 function preload() {
+    daylight = loadSound("sound-assets/calm-corner/daylight.mp3");
+    beachwaves = loadSound("sound-assets/calm-corner/beach-waves.mp3");
+    crickets = loadSound("sound-assets/calm-corner/crickets.mp3");
+    guitar = loadSound("sound-assets/calm-corner/relaxing-guitar.mp3");
+    hope = loadSound("sound-assets/calm-corner/soft-ambient-atmosphere.mp3");
+    rain = loadSound("sound-assets/calm-corner/soft-rain.mp3")
     img = loadImage("img/cloud.png")
-    bg = loadImage("img/ccb.png")
-    for (let i = 0; i < soundFiles.length; i++) {
-        sounds.push(loadSound(soundFiles[i]));
-    }
+
 }
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
 
-    bx = (windowWidth / 2)
-    by = (windowHeight / 2) + 85
+    bx = windowWidth / 2
+    by = windowHeight / 2
 
-    for (let i = 0; i < sounds.length; i++) {
-        let rad = 300 - i * RING_WIDTH;
-        buttons.push(new Button(bx, by, rad, sounds[i]));
+    for (let i = 0; i < NUM_OF_BUTTONS; i++) {
+        buttons.push(new Button(bx, by, 300, daylight));
+        buttons.push(new Button(bx, by, 250, beachwaves));
+        buttons.push(new Button(bx, by, 200, crickets));
+        buttons.push(new Button(bx, by, 150, guitar));
+        buttons.push(new Button(bx, by, 100, hope));
+        buttons.push(new Button(bx, by, 50, rain));
+
     }
     noCursor();
 }
 
 function draw() {
-    background(bg);
+    background(234, 225, 199);
 
     for (let i = 0; i < buttons.length; i++) {
         let b = buttons[i];
@@ -46,7 +45,6 @@ function draw() {
     imageMode(CENTER);
     image(img, mouseX, mouseY, 50, 50);
     pop();
-
 }
 
 class Button {
@@ -63,7 +61,7 @@ class Button {
     }
     checkMouse() {
         let distance = dist(this.x, this.y, mouseX, mouseY);
-        if (distance < this.rad && distance > this.rad - RING_WIDTH) {
+        if (distance < this.rad && distance > this.rad - 50) {
             // mouse is in the area
             this.r = 255;
             this.g = 103;

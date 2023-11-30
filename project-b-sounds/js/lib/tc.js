@@ -1,7 +1,8 @@
 let NUM_OF_BUTTONS = 1;
 let sounds = ["ambulance", "blender", "car", "clock", "doorbell", "fireworks", "rain", "security", "thunder", "train", "vacuum"];
 let buttons = [];
-let img
+let img;
+let bg;
 
 
 function preload() {
@@ -17,6 +18,7 @@ function preload() {
     train = loadSound("sound-assets/training-center/train.mp3")
     vacuum = loadSound("sound-assets/training-center/vacuum.mp3")
     img = loadImage("img/bone.png")
+    bg = loadImage("img/tcb.png")
 
 }
 
@@ -27,17 +29,17 @@ function setup() {
     by = windowHeight / 2
 
     for (let i = 0; i < NUM_OF_BUTTONS; i++) {
-        buttons.push(new Button(bx - 250, by, 75, ambulance));
-        buttons.push(new Button(bx, by, 100, blender));
-        buttons.push(new Button(bx + 250, by, 75, car));
+        buttons.push(new Button(bx - 600, by + 100, 60, ambulance));
+        buttons.push(new Button(bx - 350, by + 100, 75, blender));
+        buttons.push(new Button(bx - 100, by + 100, 60, car));
 
-        buttons.push(new Button(bx - 250, by - 200, 50, clock));
-        buttons.push(new Button(bx, by - 200, 50, doorbell));
-        buttons.push(new Button(bx + 250, by - 200, 100, fireworks));
+        buttons.push(new Button(bx - 600, by - 100, 75, clock));
+        buttons.push(new Button(bx - 350, by - 100, 45, doorbell));
+        buttons.push(new Button(bx - 100, by - 100, 45, fireworks));
 
-        buttons.push(new Button(bx - 250, by + 200, 100, rain));
-        buttons.push(new Button(bx, by + 200, 50, security));
-        buttons.push(new Button(bx + 250, by + 200, 50, thunder));
+        buttons.push(new Button(bx - 600, by + 300, 45, rain));
+        buttons.push(new Button(bx - 350, by + 300, 45, security));
+        buttons.push(new Button(bx - 100, by + 300, 75, thunder));
         // buttons.push(new Button(bx + 400, by, 50, train));
         // buttons.push(new Button(bx + 500, by, 50, vacuum));
     }
@@ -46,7 +48,7 @@ function setup() {
 }
 
 function draw() {
-    background(234, 225, 199);
+    background(bg);
 
 
     for (let i = 0; i < buttons.length; i++) {
@@ -60,6 +62,11 @@ function draw() {
     imageMode(CENTER);
     image(img, mouseX, mouseY, 100, 100);
     pop();
+
+    //banner
+    push();
+    textSize(40);
+    textAlign(CENTER);
 }
 
 class Button {
