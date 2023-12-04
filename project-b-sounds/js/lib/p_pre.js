@@ -3,9 +3,8 @@ let sounds = ["baby", "birds", "cartoon", "cheering", "chipmunk", "cow", "toy", 
 let buttons = [];
 let img;
 let bg;
-
-let dogImg1, dogImg2, dogImg3, dogImg4, dogImg5, dogImg6, dogImg7, dogImg8, dogImg9;
-let dogs = [];
+let dancer;
+let dogimg = ["d1"];
 
 
 function preload() {
@@ -17,25 +16,16 @@ function preload() {
     cow = loadSound("sound-assets/playground/cow-moos.mp3")
     toy = loadSound("sound-assets/playground/dog-toy.mp3")
     horse = loadSound("sound-assets/playground/horse.mp3")
-
     img = loadImage("img/ball.png")
     bg = loadImage("img/pb.png")
+    d1 = loadImage("img/d1.png")
 
-    //dogs
-    dogImg1 = loadImage("img/d1.png")
-    dogImg2 = loadImage("img/d2.png")
-    dogImg3 = loadImage("img/d3.png")
-    dogImg4 = loadImage("img/d4.png")
-    dogImg5 = loadImage("img/d5.png")
-    dogImg6 = loadImage("img/d6.png")
-    dogImg7 = loadImage("img/d7.png")
-    dogImg8 = loadImage("img/d8.png")
-    dogImg9 = loadImage("img/d9.png")
 }
 
 function setup() {
+
+
     createCanvas(windowWidth, windowHeight);
-    angleMode(DEGREES);
 
     bx = windowWidth / 2
     by = windowHeight / 2
@@ -52,15 +42,9 @@ function setup() {
         noCursor();
     }
 
-    dogs.push(new Dog(bx - 370, by - 2, 200, dogImg1, 10, 0));
-    dogs.push(new Dog(bx - 550, by - 195, 100, dogImg2, 0, 5));
-    dogs.push(new Dog(bx - 88, by - 30, 100, dogImg3, 0, 9));
-    dogs.push(new Dog(bx + 50, by - 6, 130, dogImg4, 2, 0));
-    dogs.push(new Dog(bx + 200, by - 32, 100, dogImg5, 0, 7));
-    dogs.push(new Dog(bx - 630, by - 24, 90, dogImg6, 11, 2));
-    dogs.push(new Dog(bx + 590, by - 170, 100, dogImg7, 0, 10));
-    dogs.push(new Dog(bx + 230, by + 330, 150, dogImg8, 5, 1));
-    dogs.push(new Dog(bx - 330, by + 270, 100, dogImg9, 1, 3));
+    //visualizations.push(new SineWaveVisualization(75, 220));
+    // dancer.push(new DoggDancer(bx + 300, by + 100, d1));
+
 }
 
 function draw() {
@@ -71,52 +55,14 @@ function draw() {
         b.checkMouse();
         b.display();
     }
-
-    for (let i = 0; i < dogs.length; i++) {
-        let dog = dogs[i];
-        // add more actions
-        dog.update();
-        dog.display();
-    }
-
-    // ball image
     push();
     imageMode(CENTER);
     image(img, mouseX, mouseY, 50, 50);
     pop();
 
-    //con
-    // push();
-    // let txt = (mouseX - bx) + "," + (mouseY - by);
-    // fill(255);
-    // text(txt, mouseX, mouseY);
-    // console.log(txt);
-    // pop();
-}
-
-class Dog {
-    constructor(x, y, size, img, jmpx, jmpy) {
-        this.x = x;
-        this.y = y;
-        this.size = size;
-        this.img = img;
-        this.jmpx = jmpx
-        this.jmpy = jmpy
-
-    }
-    update() {
-
-
-        this.offsetx = (sin(frameCount * this.jmpx) * 10);
-        this.offsety = (cos(frameCount * this.jmpy) * 10);
-    }
-    display() {
-        push();
-        translate(this.x + this.offsetx, this.y + this.offsety);
-        imageMode(CENTER);
-        image(this.img, 0, 0, this.size, this.size);
-        pop();
-    }
+    //dog
+    dancer.update();
+    dancer.display();
 }
 
 class Button {
@@ -129,9 +75,6 @@ class Button {
         this.r = 255;
         this.g = 255;
         this.b = 255;
-        this.sR = random(255);
-        this.sG = random(255);
-        this.sB = random(255);
 
     }
     checkMouse() {
@@ -159,12 +102,34 @@ class Button {
     }
     display() {
         push();
-        strokeWeight(8);
-        stroke(this.sR, this.sG, this.sB);
+
+        strokeWeight(.5);
         fill(this.r, this.g, this.b);
         ellipse(this.x, this.y, this.rad * 2, this.rad * 2);
 
         pop();
+    }
+}
+//dog
+class DoggDancer {
+    constructor(startX, startY, imgdog) {
+        this.x = startX;
+        this.y = startY;
+        this.img = imgdog
+    }
+    update() {
+        this.offsetx = 0;
+        this.offsety = (sin(frameCount * 0.01) * 10);
+    }
+    display() {
 
+        push();
+        translate(this.x + this.offsetx, this.y + this.offsety);
+
+        this.drawDog();
+        pop();
+    }
+    drawDog() {
+        image(this.img, 0, 0, 200, 200)
     }
 }
